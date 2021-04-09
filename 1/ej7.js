@@ -4,8 +4,8 @@
         - menos infinito    si c < 0 o c > j
         - 0                 si j = 0
         - max(
-            mgn(j-1, c-1) - p[j],
-            mgn(j-1, c+1) + p[j],
+            mgn(j-1, c-1) - p[j-1],
+            mgn(j-1, c+1) + p[j-1],
             mgn(j-1, c)
         )                   en otro caso
     }
@@ -19,13 +19,9 @@ var p = [3,2,5,6];  // arreglo de precios
 let n = 4;          // cant. de dias
 
 // Otras cosas:
-var M = [
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null],
-    [null, null, null, null, null]
-];  // matriz de memorizacion
+var M = [];  // matriz de memorizacion
+for (let i = 0; i < n+1; i++) M.push(new Array(n+1).fill(null));
+
 var minfty = Number.NEGATIVE_INFINITY;
 
 // Memorización de valores
@@ -45,7 +41,7 @@ function mgn(j, c){
      * Aclaración: como p[0] es el precio del asteroide en el día 1, 
      * p[j-1] es el precio del asteroide en el día j.
      */
-    
+
     if(M[j][c] == null){
         let sol1 = mgn(j-1, c-1) - p[j-1];  // comprar
         let sol2 = mgn(j-1, c+1) + p[j-1];  // vender
