@@ -1,0 +1,25 @@
+Entendiendo el problema: 
+- Un digrafo D está conformado por dos conjuntos V y X donde V es el conjunto de vértices y
+X es un subconjunto del conjunto de los pares ordenados de elementos distintos de V. A los elementos de
+X los llamaremos arcos.
+- El grado de entrada d_in(v) de un vértice v de un digrafo es la cantidad de arcos que llegan a v. Es decir,
+la cantidad de arcos que tienen a v como cabeza.
+- El grado de salida d_out(v) de un vértice v de un digrafo es la cantidad de arcos que salen de v. Es decir, la
+cantidad de arcos que tienen a v como cola.
+- |E(D)| es la cantidad de aristas (edges) del grafo, o sea que en realidad es lo mismo que |X|.
+
+Caso m = 1
+
+Tenemos una única arista, por lo cual hay solamente 2 vertices conectados en un grafo de tamaño n. Además como el grafo es dirigido, esta arista tiene dirección.
+Por lo tanto la sumatoria de d_in(v) para todo v en V es 1, lo mismo para d_out(v).
+
+Caso m-1 => m
+
+Queremos ver que en un digrafo de m aristas y n vertices: 
+- la suma de aristas que tienen a v como cabeza para todo vertice v es m.
+- la suma de aristas que tienen a v como cola para todo vertice v es m.
+
+Tomando la HI, al agregar una arista mas es claro que vamos a tener algún vertice cuyo d_in se incremente en uno, lo mismo para d_out.
+
+
+
