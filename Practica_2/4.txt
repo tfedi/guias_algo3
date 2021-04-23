@@ -1,0 +1,10 @@
+- n = 2:
+    qvq para todo grafo G / m > ((2-1)*(2-2))/2 = 0 aristas es conexo.
+    esto es verdad dado que si existe al menos una arista tiene que unir ambos vertices.
+
+- n => n+1:
+    qvq para todo grafo G / m > ((n+1-1)*(n+1-2))/2 aristas es conexo.
+    ((n+1-1)*(n+1-2))/2 = n*(n-1)/2 = m_Kn (cant. aristas de un grafo completo de n vertices).
+    Es decir, tenemos suficientes aristas para formar un grafo de n vertices completo y 
+    al menos una mas (pues m > m_Kn). Por lo tanto, tiene que ir a un nuevo vertice y por ende
+    queda conexo (existe camino entre todo par de vertices).

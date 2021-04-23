@@ -1,0 +1,29 @@
+Inducción en la cantidad de aristas:
+
+- m = 0: 
+    No hay aristas, todos los vertices son de grado 0.
+
+- m = 1:
+    Hay exactamente 2 aristas de grado 1, el resto de grado 0.
+
+- m => m+1:
+
+    HI: para todo grafo de n vertices y m aristas, hay un par de vertices de igual grado.
+    Es decir, existen i,j tales que d(vi) = d(vj).
+
+    Quiero ver que pasa lo mismo para un grafo de n vertices y m+1 aritas.
+
+    Supongamos que no tiene un par de vertices de igual grado. Es decir
+        d(v1) < d(v2) < ... < d(vn-1) < d(vn)
+
+    Sacamos la arista (i,j), entonces pueden pasar dos cosas:
+    
+    - O bien sigue sin haber un par de vertices de igual grado, es decir:
+        d(v1) < ... < d(vi) < d(vj) < ... < d(vn) 
+    Absurdo porque viola la HI.
+    
+    - O bien aparecen un par de vertices que ahora tienen el mismo grado, por ejemplo:
+        d(v1) < ... < d(vi) = d(vi+1) < ... d(vj) < ... < d(vn)
+    Y ahora podría agregar la arista (i, i+1) y tener un par de vertices de igual grado 
+    con m+1 aristas. Absurdo
+

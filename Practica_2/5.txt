@@ -1,0 +1,9 @@
+- P = v_0, ..., v_p
+- Q = w_0, ..., w_q
+
+- v_0 = w_0 = v
+- v_p = w_q = w
+
+Como G no es un grafo dirigido, entonces existe un camino Q' = w_q, ..., w_0
+
+Luego v_0 -> ... -> v_p-1 -> v_p = w_q -> w_q-1 -> ... -> w_0 = v_0 es un loop.
