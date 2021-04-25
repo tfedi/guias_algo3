@@ -1,0 +1,17 @@
+    |   a   |   b   |   c   |   d   |   e   |   f   |   g   |   h   |     
+a   |  O(m) |  O(n) |  O(1) |  O(1) |  O(1) | O(n^2)|  O(n) |  O(n) |
+b   |  O(m) |  O(n) |  O(1) |  O(n) |  O(1) |  O(n) |  O(n) |  O(n) |
+c   |  O(m) |  O(1) |  O(n) |  O(n) |  O(1) |  O(n) |  O(1) |   ?   |
+d   |  O(m) |  O(1) |  O(1) |  O(n) |  O(1) | O(n^2)|  O(1) |  O(1) |
+
+Se asume que:
+    - Insertar en el conjunto es O(1) (salvo en h que inserta en orden)
+    - Buscar/Borrar en el conjunto es O(n)
+    - Calcular el hash es O(1), incluso en h.
+
+En cuanto a complejidad espacial, si bien a y b son O(n^2) en el peor caso
+(grafo completo), en la práctica ahorran mucho espacio ya que solamente 
+reservan memoria para las aristas necesarias.
+
+En cambio c es O(n^2) para cualquier grafo y d es O(n*k) donde k es el tamaño
+de la tabla de hash.

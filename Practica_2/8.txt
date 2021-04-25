@@ -1,0 +1,6 @@
+No se porque sería O(n+m) si en el ej anterior vimos que se podía inicializar la
+estructura en O(m), salvo que haya que contar la cantidad de vertices a mano para
+crear el vector inicial.
+
+Lo mismo para el resto de estructuras, creo que todas se deberían poder crear en
+O(m).
