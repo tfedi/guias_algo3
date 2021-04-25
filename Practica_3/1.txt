@@ -1,0 +1,24 @@
+T:           r
+            / \
+           v1 v2
+          / \ / \
+        w1 w2 w3 w4
+        /\ /\ /\ /\
+       v3 v4 ....
+
+a)  longitud del ciclo = #aristas de v hasta r + #aristas de w hasta r + 1 (arista nueva)
+    como v y w pertenecen a V o a W, entonces la cantidad de aristas de ambas hasta la raiz
+    es o bien par o impar, y la suma de dos numeros de misma paridad es siempre par.
+
+b)  Como ahora estamos viendo aristas que unen a un vertice de V con uno de W, resulta que
+    la cantidad de aristas hasta la raiz de cada vertice tiene diferente paridad, por ende
+    la longitud del ciclo es par.
+
+    Luego, si toda arista de G cumple esto => todos los ciclos de G son de longitud par
+    => es bipartito, pues no tiene ciclos de longitud impar.
+
+c)  Idea: modificar la implementación de BFS para chequear si hay una arista a un vertice del
+    mismo nivel.
+     
+
+                     

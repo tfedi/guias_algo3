@@ -1,11 +1,17 @@
-Por ayuda: asumo que hay dos caminos P1 = <v_1,...,v_k> y P2 = <u_1,...,u_k> 
+Por ayuda: asumo que hay dos caminos P1 = <v_0,...,v_k> y P2 = <u_0,...,u_k> 
 disjuntos en vertices.
 
 Como G es conexo, existe un camino P'que une v_i con u_j sin vertices de P1 y P2 en común 
 (además de v_i y u_j), esto se puede asumir siempre dado que en caso de que el camino de 
 v_i a u_j pase por u_x tomaría directamente v_i a u_x.
 
-Como este camino existe, tambien existe un camino P* = <v_1,...,v_i, P', u_j,...,u_0>
-de longitud >= i+j+1
+Como este camino existe, podemos formar los siguientes caminos: 
+    <v_0,...,v_i, P', u_j,...,u_0>
+    <v_0,...,v_i, P', u_j,...,u_n>
+    <v_n,...,v_i, P', u_j,...,u_0>
+    <v_n,...,v_i, P', u_j,...,u_n>
 
-¿Por que se puede asumir i,j >= k/2?
+De manera que el mas largo de ellos depende de i y j. Es decir, si i < k/2 entonces v_n,...,v_i
+tiene largo al menos k/2.
+
+Entonces, agarro el mas largo para i y j que seguro tiene longitud k/2 + 1+ k/2.
