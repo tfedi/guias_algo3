@@ -1,0 +1,26 @@
+a)  
+    =>) qvq si vw es puente de G entonces no pertenece a ningún ciclo.
+        Supongamos que pertenece a un ciclo, entonces la puedo sacar del grafo sin perder
+        componentes conexas, pues como estaba en un ciclo sigo teniendo camino entre todo
+        par de nodos pertenecientes al ciclo. Luego, vw no es puente. ABS
+
+    <=) qvq si vw no pertenece a ningún ciclo de G entonces es puente.
+        Sean v1 y v2 los vertices de G unidos por vw que forman una componente conexa.
+        Como vw no pertenece a ningún ciclo, si lo saco no tengo forma de llegar de v1 a v2,
+        por ende ahora tengo 2 componentes conexas. Luego vw es puente.
+
+b)  Como T se generó usando DFS, si vw está en E(G) pero no en E(T) significa que vw es 
+    back edge. Ahora, como DFS recorre en profundidad (mira por ramas), si no agrega vw
+    es que ya había procesado al otro nodo (w si estamos en v o viceversa), y como estamos
+    mirando siempre hacia abajo esto implica que uno es ancestro del otro.
+
+c)  Es facil ver que para que vw sea puente no puede ser que exista otra arista
+    que una un descendiente de w con un ancestro de v, dado que de ser asi puedo sacar vw
+    y seguir llegando de w a v por lo que sigo teniendo la misma cantidad de componentes
+    conexas.
+    ¿Por que v tiene que ser padre directo de w? Supongamos que no lo fuera, sino que en 
+    el medio hay un vertice j. De ser asi tienen que existir las aristas vj y jw, de manera
+    que si saco vw sigue habiendo un camino de v a w. Luego, vw no era puente.
+
+d)  Recorro el arbol T generado con DFS en orden y voy guardando todas las aristas que no Supongamos
+    back-edge (es decir, cada vez que se entra en la recursión).
