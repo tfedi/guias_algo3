@@ -17,8 +17,54 @@ b)  Como ahora estamos viendo aristas que unen a un vertice de V con uno de W, r
     Luego, si toda arista de G cumple esto => todos los ciclos de G son de longitud par
     => es bipartito, pues no tiene ciclos de longitud impar.
 
-c)  Idea: modificar la implementación de BFS para chequear si hay una arista a un vertice del
-    mismo nivel.
-     
+c)  Implementamos LISTA como una cola para que recorra a lo ancho. Tenemos dos buckets
+    V y W para almacenar los nodos que están a distancia impar y par de la raiz respectivamente.
 
-                     
+    nivelActual = 1;
+    biparticion = [[],[]];
+    visitados = []
+    mientras LISTA != ∅ hacer
+        elegir un nodo i de LISTA
+        si existe un arco (i, j) tal que j !∈ LISTA entonces
+            (marcar vértice j)
+            pred[j] ← i
+            next ← next + 1
+            orden[j] ← next
+            LISTA ← LISTA ∪ {j}
+            biparticion[nivelActual%2].add(j);
+            visitados.add(<j,nivelActual%2>);
+        sino
+            si i ∈ visitados y existe un arco (i, j) tal que j ∈ visitados y son del mismo nivel.
+                retornar (i,j)
+            si no
+                LISTA ← LISTA \ {i}
+                nivelActual++
+        fin si
+    fin mientras
+    retornar biparticion
+
+d)  nivelActual = 1;
+    biparticion = [[],[]];
+    visitados = []
+    mientras LISTA != ∅ hacer
+        elegir un nodo i de LISTA
+        si existe un arco (i, j) tal que j !∈ LISTA entonces
+            (marcar vértice j)
+            pred[j] ← i
+            next ← next + 1
+            orden[j] ← next
+            LISTA ← LISTA ∪ {j}
+            biparticion[nivelActual%2].add(j);
+            visitados.add(<j,nivelActual%2>);
+        sino
+            si i ∈ visitados y existe un arco (i, j) tal que j ∈ visitados y son del mismo nivel.
+                retornar (i,j)
+            si no
+                LISTA ← LISTA \ {i}
+                nivelActual++
+        fin si
+    fin mientras
+    si existe nodo i tal que i ∈ G y i !∈ visitados
+        LISTA ← LISTA ∪ {i}
+        ir a mientras
+    retornar biparticion

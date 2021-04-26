@@ -22,5 +22,21 @@ c)  Es facil ver que para que vw sea puente no puede ser que exista otra arista
     el medio hay un vertice j. De ser asi tienen que existir las aristas vj y jw, de manera
     que si saco vw sigue habiendo un camino de v a w. Luego, vw no era puente.
 
-d)  Recorro el arbol T generado con DFS en orden y voy guardando todas las aristas que no Supongamos
-    back-edge (es decir, cada vez que se entra en la recursión).
+d)  mientras LISTA != ∅ hacer
+        elegir un nodo i de LISTA
+        si existe un arco (i, j) tal que j ∈ ancestros entonces
+            posiblesPuentes.clear()
+        si existe un arco (i, j) tal que j !∈ LISTA entonces
+            pred[j] ← i
+            next ← next + 1
+            orden[j] ← next
+            LISTA ← LISTA ∪ {j}
+            posiblesPuentes.add(i,j)
+            ancestros.add(i)
+        sino
+            puentes.add(posiblesPuentes)
+            LISTA ← LISTA \ {i}
+        fin si
+    fin mientras
+
+    Preguntar como hacer para que no entre al primer if siendo padre directo.
