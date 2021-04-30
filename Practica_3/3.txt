@@ -1,0 +1,57 @@
+a)  Si la arista vw está en T todo bien. 
+    Si no lo está, es porque v es padre de w y ya está la relación en el arbol T.
+
+b)  
+    i => ii)    
+        Supongamos que hay un puente vw en G de manera que puedo llegar de v a w
+        y viceversa. Ahora si le damos un sentido v->w no pasa que puedo ir de 
+        w a v, pues vw es puente. Luego, G no admite una orientación fuertemente
+        conexa. ABS
+        Idea licha: decir que sacar el puente implica tener mas componentes conexas
+        y por ende no hay conexion entre todo par de grafos, luego no puede ser conexo.
+
+    ii => iii)
+        qvq G no tiene puentes => todo arbol DFS de G tiene su raiz alcanzable desde cualquir vertice v.
+
+        n=1:    trivial, pues la raiz es alcanzable desde la raiz.
+        n=>n+1: Sabemos por HI que todos los nodos hasta el nivel n pueden llegar a la raiz.
+                - Supongamos que existe un nodo v en el nivel n+1 que no tiene aristas hacia arriba. 
+                Si no tiene al menos una arista a un nivel anterior, entonces la arista que une a v
+                con su antecesor es puente.
+                - Supongamos que tiene una arista pero que no llega a la raiz. Como sabemos por HI se puede
+                llegar a la raiz desde cualquier nodo de nivel <= n, por ende tiene forma de llegar a la raiz.
+
+    iii => iv)
+        Como G es conexo, siempre existe un grafo generador. Por iii) este tiene que ser fuertemente conexo.
+    
+    iv => i)
+        Como existe un arbol que es fuertemente conexo, basta con agregarle las aristas faltantes de G y
+        nos queda un grafo conexo.
+
+c)  Justificación de la complejidad: DFS es lineal. Luego mirar que cada hoja llegue hasta la raiz también
+    es lineal, dado que solamente recorre su branch (imaginar un arbol que tiene todos los nodos en el mismo 
+    nivel o que tiene un solo branch).
+    
+        esHoja = false
+        hojas = []
+        mientras LISTA != ∅ hacer
+            elegir un nodo i de LISTA
+            si existe un arco (i, j) tal que j !∈ LISTA entonces
+                (marcar vértice j)
+                pred[j] ← i
+                next ← next + 1
+                orden[j] ← next
+                LISTA ← LISTA ∪ {j}
+                esHoja = false
+            sino
+                LISTA ← LISTA \ {i}
+                si !esHoja
+                    hoja.add(i)
+                    esHoja = true
+            fin si
+        fin mientras
+
+        para todo v en hojas:
+            si no existe camino a raiz, retornar false
+        
+        retornar pred
