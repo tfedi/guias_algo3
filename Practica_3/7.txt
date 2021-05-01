@@ -1,8 +1,2 @@
-a)  
-    G_anterior = G
-    Mientras k < inf:
-        G_nuevo = Sacar todos las aristas de peso < k de G_anterior. 
-        Me fijo si el grafo resultante es conexo (¿Como? Idea: usar DFS y ver que pred tenga todos los vertices)
-        Si no es conexo, retornar k-1
-        G_anterior = G_nuevo
-        k++
+a)  Generar el grafo primero con las aristas de mayor peso, luego correr kruskal y ver si queda conexo.
+    Si no es conexo, agrego las de menor y peso y vuelvo a correr kruskal, y así sucesivamente.

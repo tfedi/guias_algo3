@@ -8,6 +8,7 @@ a)
         Sean v1 y v2 los vertices de G unidos por vw que forman una componente conexa.
         Como vw no pertenece a ningún ciclo, si lo saco no tengo forma de llegar de v1 a v2,
         por ende ahora tengo 2 componentes conexas. Luego vw es puente.
+        Idea: probar por contrareciproco (saco vw y veo que sigo conectados porque vw no era puente).
 
 b)  Como T se generó usando DFS, si vw está en E(G) pero no en E(T) significa que vw es 
     back edge. Ahora, como DFS recorre en profundidad (mira por ramas), si no agrega vw
@@ -21,6 +22,7 @@ c)  Es facil ver que para que vw sea puente no puede ser que exista otra arista
     ¿Por que v tiene que ser padre directo de w? Supongamos que no lo fuera, sino que en 
     el medio hay un vertice j. De ser asi tienen que existir las aristas vj y jw, de manera
     que si saco vw sigue habiendo un camino de v a w. Luego, vw no era puente.
+    Idea para la vuelta: todas las aristas que salgan de un descendiente de w tienen que ser hijos de v.
 
 d)  mientras LISTA != ∅ hacer
         elegir un nodo i de LISTA
@@ -39,4 +41,6 @@ d)  mientras LISTA != ∅ hacer
         fin si
     fin mientras
 
-    Preguntar como hacer para que no entre al primer if siendo padre directo.
+    Idea: correr DFS primero para establecer un orden entre los nodos (en pred),
+    luego mirar en cada subarbol si hay alguna arista de las hojas que van fuera
+    del subarbol.

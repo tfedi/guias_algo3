@@ -9,8 +9,4 @@ Ejemplo:    X = 4,3,6
             X-------Y--------Z      X-------Z--------Y      
                 5       5               4       5
 
-para cada i entre (0,n):
-    para cada j entre (i+1,n):
-        si d(X[i], X[j]) < mejores[i].peso:
-            mejores[i].peso = d(X[i], X[j])
-            mejores[i].pareja = j
+Usar la versión de Kruskal para grafos densos resuelve el problema.
